@@ -4,13 +4,12 @@ console.log(checkForm);
 checkForm.addEventListener("submit", handleSubmit);
 function handleSubmit(event) {
   event.preventDefault();
-  // const email = event.currentTarget.elements.email.value;
-  // const pass = event.currentTarget.elements.password.value;
+
   const formData = new FormData(event.currentTarget);
   const data = {};
   formData.forEach((name, value) => {
     if (!name || !value) {
-      alert("All credentials fill you must...");
+      alert("Fill all Credentials fields ...");
     } else {
       data[value] = name;
     }
