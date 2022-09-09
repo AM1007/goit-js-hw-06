@@ -1,6 +1,8 @@
-const inpEl = document.querySelector("#font-size-control");
-const spanEl = document.querySelector("#text");
+const slider = document.querySelector(`#font-size-control`);
+const span = document.querySelector("#text");
 
-inpEl.addEventListener("mousemove", () => {
-  spanEl.style.fontSize = `${inpEl.value}px`;
+span.style.fontSize = `${slider.value}px`;
+
+slider.addEventListener("input", function (event) {
+  span.style.fontSize = event.currentTarget.value + "px";
 });
