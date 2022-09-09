@@ -13,11 +13,14 @@ const images = [
   },
 ];
 
-for (const image of images) {
-  const galleryEl = document.querySelector(".gallery");
+document.head.insertAdjacentHTML(
+  "beforeend",
+  "<style>.flex-container {display: flex; flex-wrap: wrap}.flex-item {padding: 5px 5px 5px 5px; margin: 20px 20px 20px 20px; list-style-type: none;}</style>"
+);
 
-  galleryEl.insertAdjacentHTML(
-    "afterbegin",
-    `<li><img src="${image.url}" alt="${image.alt}"></li>`
-  );
-}
+const picGallery = document.querySelector(".gallery");
+picGallery.classList.add("flex-container");
+const pictArr = images.map((image) => {
+  return `<li class="flex-item"><img src="${image.url}" alt="${image.alt}" width="450" height="300"></li>`;
+});
+picGallery.insertAdjacentHTML("afterbegin", pictArr.join(""));
