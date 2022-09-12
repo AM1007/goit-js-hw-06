@@ -7,18 +7,12 @@ const ingredients = [
   "Condiments",
 ];
 
-const ulEl = document.querySelector("ul");
+const ulElements = document.querySelector("#ingredients");
 
-const elements = [];
-
-for (let i = 0; i < ingredients.length; i += 1) {
-  const ingts = ingredients[i];
-
-  const liEl = document.createElement("li");
-  liEl.textContent = ingts;
-  liEl.classList.add("item");
-
-  elements.push(liEl);
-}
-
-ulEl.append(...elements);
+const ulArr = ingredients.map((elem) => {
+  const liElement = document.createElement("li");
+  liElement.textContent = elem;
+  liElement.classList.add("item");
+  return liElement;
+});
+ulElements.append(...ulArr);
